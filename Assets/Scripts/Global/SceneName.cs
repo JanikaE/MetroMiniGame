@@ -5,5 +5,6 @@ public enum SceneName
 {
     Menu,
     Main,
-    FlyingBirt
+    FlyingBirt,
+    Game2048
 }
