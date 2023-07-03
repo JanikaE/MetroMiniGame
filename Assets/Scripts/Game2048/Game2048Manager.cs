@@ -87,12 +87,12 @@ public class Game2048Manager : MonoBehaviour
         // ÅÐ¶¨Ê¤ÀûÊ§°Ü
         if (Box.CheckVictory() == true)
         {
-            gameOverUI.GameOver(true);
+            gameOverUI.GameOver(SceneName.Game2048, true);
             return;
         }
         if (Box.CheckVictory() == false)
         {
-            gameOverUI.GameOver(false);
+            gameOverUI.GameOver(SceneName.Game2048, false);
             return;
         }
     }

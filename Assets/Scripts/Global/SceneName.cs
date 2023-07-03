@@ -3,6 +3,7 @@
 /// </summary>
 public enum SceneName
 {
+    GameEntry,
     Menu,
     Main,
     FlyingBirt,

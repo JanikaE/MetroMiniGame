@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             // 显示游戏通关UI面板
-            gameOverUI.GameOver(true);
+            gameOverUI.GameOver(SceneName.FlyingBirt, true);
             return;
         }
 
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             // 显示游戏失败UI面板
-            gameOverUI.GameOver(false);
+            gameOverUI.GameOver(SceneName.FlyingBirt, false);
             return;
         }
     }
