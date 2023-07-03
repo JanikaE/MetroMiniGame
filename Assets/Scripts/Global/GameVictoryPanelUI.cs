@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameVictoryPanelController : MonoBehaviour
+public class GameVictoryPanelUI : MonoBehaviour
 {
     [SerializeField] private Button mainScene;
 
@@ -12,7 +12,7 @@ public class GameVictoryPanelController : MonoBehaviour
         mainScene.onClick.AddListener(() =>
         {
             // 返回主场景，并通知主场景点亮关卡对应的点
-
+            MainController.Instance.GameOver(GameOverUI.Instance.CurrentSceneName, true);
         });
     }
 }

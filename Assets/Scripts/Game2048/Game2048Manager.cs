@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Game2048Manager : MonoBehaviour
 {
-    [SerializeField] private GameOverUI gameOverUI;
     [SerializeField] private Button Up;
     [SerializeField] private Button Down;
     [SerializeField] private Button Left;
@@ -32,6 +31,8 @@ public class Game2048Manager : MonoBehaviour
     {
         Box = new Game2048Box();
         Box.Init();
+        GameOverUI.Instance.Init(SceneName.Game2048);
+        GamePausePanelUI.Instance.Init(SceneName.Game2048);
 
         // 用屏幕按钮游玩
         Up.onClick.AddListener(() =>
@@ -87,12 +88,12 @@ public class Game2048Manager : MonoBehaviour
         // 判定胜利失败
         if (Box.CheckVictory() == true)
         {
-            gameOverUI.GameOver(true);
+            GameOverUI.Instance.GameOver(true);
             return;
         }
         if (Box.CheckVictory() == false)
         {
-            gameOverUI.GameOver(false);
+            GameOverUI.Instance.GameOver(false);
             return;
         }
     }

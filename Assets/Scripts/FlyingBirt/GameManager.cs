@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameOverUI gameOverUI;
+    private void Start()
+    {
+        GameOverUI.Instance.Init(SceneName.FlyingBirt);
+        GamePausePanelUI.Instance.Init(SceneName.FlyingBirt);
+    }
 
     private void Update()
     {
@@ -13,7 +17,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             // 显示游戏通关UI面板
-            gameOverUI.GameOver(true);
+            GameOverUI.Instance.GameOver(true);
             return;
         }
 
@@ -21,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             // 显示游戏失败UI面板
-            gameOverUI.GameOver(false);
+            GameOverUI.Instance.GameOver(false);
             return;
         }
     }
