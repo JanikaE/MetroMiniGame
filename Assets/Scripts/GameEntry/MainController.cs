@@ -24,6 +24,8 @@ public class MainController : MonoBehaviour
         finishedSceneName = sceneName;
         this.isVictory = isVictory;
         SceneManager.LoadScene((int)SceneName.Main);
+        SceneManager.sceneLoaded += sceneLoadedCallback;
+
     }
 
     private void sceneLoadedCallback(Scene scene, LoadSceneMode loadSceneMode)
