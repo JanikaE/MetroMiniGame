@@ -2,6 +2,7 @@ using Game2048;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,9 +24,6 @@ public class Game2048Manager : MonoBehaviour
     [SerializeField] private Text Score;
     [SerializeField] private Text Target;
     private Game2048Box Box;
-
-    private const int clickInterval = 500;
-    private int lastClick;
 
     void Start()
     {
