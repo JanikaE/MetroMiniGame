@@ -10,5 +10,6 @@ public enum SceneName
     FlappyBird,
     Game2048,
     Suduku,
-    Guess
+    Guess,
+    Press
 }

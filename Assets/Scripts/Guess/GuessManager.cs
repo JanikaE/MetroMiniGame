@@ -9,7 +9,6 @@ public class GuessManager : MonoBehaviour
     GuessBox Box = new();
     [SerializeField] private InputField inputField;
     [SerializeField] private Text Result;
-    [SerializeField] private Text Range;
     [SerializeField] private Text Cnt;
     [SerializeField] private Text Limit;
 
@@ -25,22 +24,17 @@ public class GuessManager : MonoBehaviour
         if (inputField != null && Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             int inputNum = int.Parse(inputField.text);
-            int result = Box.Compare(inputNum);
-            switch (result)
+            string result = Box.Compare(inputNum);
+            if (result == "0")
             {
-                case 0:
-                    GameOverUI.Instance.GameOver(true);
-                    break;
-                case 1:
-                    Result.text = "Too Large";
-                    break;
-                case 2:
-                    Result.text = "Too Small";
-                    Range.text = Box.GetRange();
-                    break;
+                GameOverUI.Instance.GameOver(true);
             }
+            else
+            {
+                Result.text = result;
+            }
+
             inputField.text = "";
-            Range.text = Box.GetRange();
             Box.cnt++;
             if (Box.cnt > GuessBox.limit)
             {
