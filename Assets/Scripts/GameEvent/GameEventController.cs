@@ -15,6 +15,8 @@ public class GameEventController : MonoBehaviour
     [SerializeField] private Transform leftButtonResult;
     [SerializeField] private Transform rightButtonResult;
 
+    [SerializeField] private SceneName currentSceneName;
+
     private void Start()
     {
         leftButton.onClick.AddListener(() =>
@@ -29,7 +31,7 @@ public class GameEventController : MonoBehaviour
         });
         mainScene.onClick.AddListener(() =>
         {
-            MainController.Instance.GameOver(SceneName.Event01, true);
+            MainController.Instance.GameOver(currentSceneName, true);
         });
     }
 
