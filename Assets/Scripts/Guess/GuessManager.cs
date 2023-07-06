@@ -36,7 +36,7 @@ public class GuessManager : MonoBehaviour
 
             inputField.text = "";
             Box.cnt++;
-            if (Box.cnt > GuessBox.limit)
+            if (Box.cnt >= GuessBox.limit)
             {
                 GameOverUI.Instance.GameOver(false);
             }
