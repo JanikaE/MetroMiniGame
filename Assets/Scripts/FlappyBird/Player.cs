@@ -63,10 +63,10 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle")) {
             Debug.Log("碰撞");
-            FindObjectOfType<TestScene>().GameOver();
+            FindObjectOfType<FlappyBirdManager>().GameOver();
         } else if (other.gameObject.CompareTag("Scoring")) {
             Debug.Log("等分");
-            FindObjectOfType<TestScene>().IncreaseScore();
+            FindObjectOfType<FlappyBirdManager>().IncreaseScore();
         }
     }
 

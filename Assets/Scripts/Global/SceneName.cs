@@ -7,7 +7,7 @@ public enum SceneName
     GameEntry,
     Menu,
     Main,
-    FlyingBirt,
+    FlappyBird,
     Game2048,
     Suduku
 }

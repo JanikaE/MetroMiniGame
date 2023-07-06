@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TestScene : MonoBehaviour
+public class FlappyBirdManager : MonoBehaviour
 {
     public Player player;
     public Text scoreText;
@@ -14,6 +14,11 @@ public class TestScene : MonoBehaviour
         Application.targetFrameRate = 60;
 
         Pause();
+    }
+
+    private void Start()
+    {
+        GamePausePanelUI.Instance.Init(SceneName.FlappyBird);
     }
 
     public void Play()
@@ -40,7 +45,6 @@ public class TestScene : MonoBehaviour
     {
         playButton.SetActive(true);
         gameOver.SetActive(true);
-
         Pause();
     }
 

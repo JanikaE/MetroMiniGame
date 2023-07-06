@@ -22,7 +22,7 @@ public class LevelButtonController : MonoBehaviour
         for (int i = 0; i < levelButtonList.Length; i++)
         {
             Button tempButton = levelButtonList[i];
-            SceneName tempName = i + SceneName.FlyingBirt;
+            SceneName tempName = i + SceneName.FlappyBird;
             tempButton.onClick.AddListener(() =>
             {
                 SceneManager.LoadScene((int)tempName);
@@ -34,7 +34,7 @@ public class LevelButtonController : MonoBehaviour
     {
         foreach (SceneName sceneName in victoriousSceneList)
         {
-            levelButtonList[sceneName - SceneName.FlyingBirt].GetComponent<Image>().color = Color.red;
+            levelButtonList[sceneName - SceneName.FlappyBird].GetComponent<Image>().color = Color.red;
         }
 
     }
