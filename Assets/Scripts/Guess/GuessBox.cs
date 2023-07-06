@@ -32,12 +32,25 @@ namespace Guess
             }
             else if (guessNum > num)
             {
+                if (guessNum > rangeBottom && guessNum < rangeTop)
+                {
+                    rangeBottom  = guessNum + 1;
+                }
                 return 1;
             }
             else
             {
+                if (guessNum > rangeBottom && guessNum < rangeTop)
+                {
+                    rangeTop = guessNum - 1;
+                }
                 return -1;
             }
+        }
+
+        public string GetRange()
+        {
+            return rangeBottom.ToString() + "--->" +rangeTop.ToString();
         }
     }
 }
