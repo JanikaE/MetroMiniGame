@@ -11,5 +11,6 @@ public enum SceneName
     Game2048,
     Suduku,
     Guess,
-    Press
+    Press,
+    Event01
 }
