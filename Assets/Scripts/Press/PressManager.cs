@@ -17,8 +17,8 @@ public class PressManager : MonoBehaviour
     private Dictionary<int, Button> buttons = new Dictionary<int, Button>();
     private Dictionary<int, Text> texts = new Dictionary<int, Text>();
     private int timer;
+    private bool isUpdate;
 
-    // Start is called before the first frame update
     void Start()
     {
         Box.Init();
@@ -32,6 +32,7 @@ public class PressManager : MonoBehaviour
         texts.Add(1, T1);
         texts.Add(2, T2);
         timer = 0;
+        isUpdate = true;
 
         for (int i = 0; i < PressBox.rage; i++)
         {
@@ -47,17 +48,18 @@ public class PressManager : MonoBehaviour
                 }
                 else
                 {
+                    BanButtons();
+                    isUpdate = false;
                     GameOverUI.Instance.GameOver(false);
                 }
             });
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer++;
-        if (timer == 500)
+        if (timer == 100 && isUpdate)
         {
             Box.SwitchLight();
             timer = 0;
@@ -88,6 +90,15 @@ public class PressManager : MonoBehaviour
                 button.image.color = Color.red;
                 text.text = "CO2";
             }
+        }
+    }
+
+    private void BanButtons()
+    {
+        for (int i = 0; i < PressBox.rage; i++)
+        {
+            Button button = buttons.GetValueOrDefault(i);
+            button.enabled = false;
         }
     }
 }

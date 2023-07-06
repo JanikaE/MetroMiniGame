@@ -11,6 +11,8 @@ public class GuessManager : MonoBehaviour
     [SerializeField] private Text Result;
     [SerializeField] private Text Cnt;
     [SerializeField] private Text Limit;
+    [SerializeField] private Button Enter;
+    private bool isEnter;
 
     void Start()
     {
@@ -19,11 +21,16 @@ public class GuessManager : MonoBehaviour
         GamePausePanelUI.Instance.Init(SceneName.Guess);
 
         Result.text = "";
+
+        Enter.onClick.AddListener(() =>
+        {
+            isEnter = true;
+        });
     }
 
     void Update()
     {
-        if (inputField != null && Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (inputField != null && isEnter)
         {
             int inputNum = int.Parse(inputField.text);
             string result = Box.Compare(inputNum);
@@ -37,6 +44,7 @@ public class GuessManager : MonoBehaviour
             }
 
             inputField.text = "";
+            isEnter = false;
             Box.cnt++;
             if (Box.cnt >= GuessBox.limit)
             {
