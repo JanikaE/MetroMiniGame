@@ -30,7 +30,7 @@ namespace Guess
             }
             else if (guessNum < 100 || guessNum > 999)
             {
-                return "The number of digits is different";
+                return "输入不合法";
             }
             else
             {
