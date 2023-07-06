@@ -144,39 +144,39 @@ public class SudukuManager : MonoBehaviour
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 0;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad1))
+            if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 1;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad2))
+            if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 2;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad3))
+            if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 3;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad4))
+            if (Input.GetKeyDown(KeyCode.Keypad4) || Input.GetKeyDown(KeyCode.Alpha4))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 4;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad5))
+            if (Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.Alpha5))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 5;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad6))
+            if (Input.GetKeyDown(KeyCode.Keypad6) || Input.GetKeyDown(KeyCode.Alpha6))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 6;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad7))
+            if (Input.GetKeyDown(KeyCode.Keypad7) || Input.GetKeyDown(KeyCode.Alpha7))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 7;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad8))
+            if (Input.GetKeyDown(KeyCode.Keypad8) || Input.GetKeyDown(KeyCode.Alpha8))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 8;
             }
-            if (Input.GetKeyDown(KeyCode.Keypad9))
+            if (Input.GetKeyDown(KeyCode.Keypad9) || Input.GetKeyDown(KeyCode.Alpha9))
             {
                 Box.playMap[Box.ChooseX, Box.ChooseY] = 9;
             }
