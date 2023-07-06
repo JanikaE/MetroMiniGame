@@ -17,6 +17,8 @@ public class GuessManager : MonoBehaviour
         Box.Init();
         GameOverUI.Instance.Init(SceneName.Guess);
         GamePausePanelUI.Instance.Init(SceneName.Guess);
+
+        Result.text = "";
     }
 
     void Update()
