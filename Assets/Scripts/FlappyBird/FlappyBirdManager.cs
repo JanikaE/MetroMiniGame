@@ -5,8 +5,11 @@ public class FlappyBirdManager : MonoBehaviour
 {
     public Player player;
     public Text scoreText;
+    public Text targetScoreText;
     public GameObject playButton;
-    public GameObject gameOver;
+
+    [SerializeField] private int targetScore;
+
     private int score;
 
     private void Awake()
@@ -18,7 +21,9 @@ public class FlappyBirdManager : MonoBehaviour
 
     private void Start()
     {
+        GameOverUI.Instance.Init(SceneName.FlappyBird);
         GamePausePanelUI.Instance.Init(SceneName.FlappyBird);
+        targetScoreText.text = "Ŀ�꣺" + targetScore;
         playButton.GetComponent<Button>().onClick.AddListener(() =>
         {
             Play();
@@ -31,7 +36,6 @@ public class FlappyBirdManager : MonoBehaviour
         scoreText.text = score.ToString();
 
         playButton.SetActive(false);
-        gameOver.SetActive(false);
 
         Time.timeScale = 1f;
         player.enabled = true;
@@ -47,8 +51,7 @@ public class FlappyBirdManager : MonoBehaviour
 
     public void GameOver()
     {
-        playButton.SetActive(true);
-        gameOver.SetActive(true);
+        GameOverUI.Instance.GameOver(false);
         Pause();
     }
 
@@ -62,6 +65,11 @@ public class FlappyBirdManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        if (score >= targetScore)
+        {
+            GameOverUI.Instance.GameOver(true);
+            Pause();
+        }
     }
 
 }

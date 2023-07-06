@@ -1898,10 +1898,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 954933893}
     m_Modifications:
-    - target: {fileID: 3954897405795463298, guid: f956e24ca5dc0364a8057579bdd11076, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3954897407330911362, guid: f956e24ca5dc0364a8057579bdd11076, type: 3}
       propertyPath: m_Name
       value: GameOverPanel
@@ -1988,10 +1984,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3954897407330911363, guid: f956e24ca5dc0364a8057579bdd11076, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3954897407432057749, guid: f956e24ca5dc0364a8057579bdd11076, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
