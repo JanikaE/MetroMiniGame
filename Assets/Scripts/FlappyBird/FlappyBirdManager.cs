@@ -19,6 +19,10 @@ public class FlappyBirdManager : MonoBehaviour
     private void Start()
     {
         GamePausePanelUI.Instance.Init(SceneName.FlappyBird);
+        playButton.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            Play();
+        });
     }
 
     public void Play()
