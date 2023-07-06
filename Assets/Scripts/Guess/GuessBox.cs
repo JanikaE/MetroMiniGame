@@ -10,47 +10,81 @@ namespace Guess
     {
         public int num;
         public int cnt;
-        public const int limit = 8;
-        public int rangeTop;
-        public int rangeBottom;
+        public const int limit = 10;
 
-        public GuessBox() 
+        public GuessBox()
         {
         }
 
         public void Init()
         {
             Random random = new();
-            num = random.Next(0, 500);
+            num = random.Next(100, 1000);
         }
-         
-        public int Compare(int guessNum)
+
+        public string Compare(int guessNum)
         {
             if (guessNum == num)
             {
-                return 0;
+                return "0";
             }
-            else if (guessNum > num)
+            else if (guessNum < 100 || guessNum > 999)
             {
-                if (guessNum > rangeBottom && guessNum < rangeTop)
-                {
-                    rangeBottom  = guessNum + 1;
-                }
-                return 1;
+                return "The number of digits is different";
             }
             else
             {
-                if (guessNum > rangeBottom && guessNum < rangeTop)
-                {
-                    rangeTop = guessNum - 1;
-                }
-                return -1;
+                int[] guess = ToArray(guessNum);
+                int[] target = ToArray(num);
+                return GetAB(guess, target);
             }
         }
 
-        public string GetRange()
+        public int[] ToArray(int num)
         {
-            return rangeBottom.ToString() + "--->" +rangeTop.ToString();
+            int[] result = new int[3];
+            int i = 0;
+            while (num > 0)
+            {
+                result[i++] = num % 10;
+                num /= 10;
+            }
+            return result;
+        }
+
+        public string GetAB(int[] a, int[] b)
+        {
+            return "A" + GetA(a, b) + "B" + GetB(a, b);
+        }
+
+        public int GetA(int[] a, int[] b)
+        {
+            int result = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] == b[i])
+                {
+                    result++;
+                }
+            }
+            return result;
+        }
+
+        public int GetB(int[] a, int[] b)
+        {
+            int result = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < b.Length; j++)
+                {
+                    if (a[i] == b[j] && i != j)
+                    {
+                        result++;
+                        break;
+                    }
+                }
+            }
+            return result;
         }
     }
 }
