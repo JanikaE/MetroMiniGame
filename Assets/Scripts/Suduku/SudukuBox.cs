@@ -73,14 +73,14 @@ namespace Suduku
                 }
             }
             // 检查在宫格中是否有重复
-            //int[] Box = GetSmallBox(x, y, out int index);
-            //for (int i = 0; i < rage; i++)
-            //{
-            //    if (playMap[x, y] == Box[i] && index != i)
-            //    {
-            //        return false;
-            //    }
-            //}
+            int[] Box = GetSmallBox(x, y, out int index);
+            for (int i = 0; i < rage; i++)
+            {
+                if (playMap[x, y] == Box[i] && index != i)
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -134,7 +134,7 @@ namespace Suduku
         /// <param name="index">此小格在宫格内的下标</param>
         private int[] GetSmallBox(int x, int y, out int index)
         {
-            int[] returns = new int[4];
+            int[] returns = new int[rage];
             int k = 0;
             int startX = x / 2 * 2 ;
             int startY = y / 2 * 2;
@@ -142,7 +142,7 @@ namespace Suduku
             {
                 for (int j = startX; j < startX + 2; j++)
                 {
-                    returns[k++] = playMap[i, j];
+                    returns[k++] = playMap[j, i];
                 }
             }
             index = (y - startY) * 2 + x - startX;
