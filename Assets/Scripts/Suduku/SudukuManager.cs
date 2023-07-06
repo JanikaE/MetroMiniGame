@@ -41,13 +41,15 @@ public class SudukuManager : MonoBehaviour
     [SerializeField] private Text T33;
     #endregion
 
-    private Dictionary<int, Button> Buttons;
-    private Dictionary<int, Text> Texts;
+    private Dictionary<int, Button> Buttons = new Dictionary<int, Button>();
+    private Dictionary<int, Text> Texts = new Dictionary<int, Text>();
     SudukuBox Box = new();
 
     void Start()
     {        
         Box.Init();
+        GameOverUI.Instance.Init(SceneName.Suduku);
+        GamePausePanelUI.Instance.Init(SceneName.Suduku);
 
         #region Buttons和Texts的初始化
         Buttons.Add(0, B00);

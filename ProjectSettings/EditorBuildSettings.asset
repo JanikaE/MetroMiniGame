@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 8d005eda1e4144b4c927b971823e3fb5
   - enabled: 1
-    path: Assets/Scenes/FlyingBirt.unity
+    path: Assets/Scenes/TestScene.unity
     guid: 2005e104d5cda404b8320e285598c09a
   - enabled: 1
     path: Assets/Scenes/Game2048.unity
     guid: ac93c59bca84c034fa91070fb3ac6c34
+  - enabled: 1
+    path: Assets/Scenes/Suduku.unity
+    guid: 43aad4256d1fd0f4e8cc27113c6b6f17
   m_configObjects: {}
