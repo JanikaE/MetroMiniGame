@@ -62,8 +62,8 @@ public class Game2048Manager : MonoBehaviour
         N20.text = GetString(2, 0);
         N21.text = GetString(2, 1);
         N22.text = GetString(2, 2);
-        Score.text = "Score:" + Box.score;
-        Target.text = "Target:" + Game2048Box.target;
+        Score.text = "得分：" + Box.score;
+        Target.text = "目标：" + Game2048Box.target;
         
         // 用键盘按键游玩
         if (Input.GetKeyDown(KeyCode.UpArrow))
