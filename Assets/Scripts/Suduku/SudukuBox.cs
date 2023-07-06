@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Suduku
 {
@@ -30,7 +31,7 @@ namespace Suduku
         public void Init()
         {
             Copy(ref playMap, originMap);
-            Random random = new();
+            System.Random random = new();
             for (int i = 0; i < 4; i++)
             {
                 int x, y;
@@ -72,14 +73,14 @@ namespace Suduku
                 }
             }
             // 检查在宫格中是否有重复
-            int[] Box = GetSmallBox(x, y, out int index);
-            for (int i = 0; i < rage; i++)
-            {
-                if (playMap[x, y] == Box[i] && index != i)
-                {
-                    return false;
-                }
-            }
+            //int[] Box = GetSmallBox(x, y, out int index);
+            //for (int i = 0; i < rage; i++)
+            //{
+            //    if (playMap[x, y] == Box[i] && index != i)
+            //    {
+            //        return false;
+            //    }
+            //}
             return true;
         }
 
@@ -137,9 +138,9 @@ namespace Suduku
             int k = 0;
             int startX = x / 2 * 2 ;
             int startY = y / 2 * 2;
-            for (int i = startX; i < startX + 2; i++)
+            for (int i = startY; i < startY + 2; i++)
             {
-                for (int j = startY; j < startY + 2; j++)
+                for (int j = startX; j < startX + 2; j++)
                 {
                     returns[k++] = playMap[i, j];
                 }

@@ -9,5 +9,6 @@ public enum SceneName
     Main,
     FlyingBirt,
     Game2048,
-    Suduku
+    Suduku,
+    Guess
 }
