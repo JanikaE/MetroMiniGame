@@ -30,6 +30,14 @@ public class FlappyBirdManager : MonoBehaviour
         });
     }
 
+    private void Update()
+    {
+        if (score >= 10)
+        {
+            // Victory
+        }
+    }
+
     public void Play()
     {
         score = 0;

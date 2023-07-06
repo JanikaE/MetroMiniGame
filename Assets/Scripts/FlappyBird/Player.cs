@@ -44,6 +44,13 @@ public class Player : MonoBehaviour
         Vector3 rotation = transform.eulerAngles;
         rotation.z = direction.y * tilt;
         transform.eulerAngles = rotation;
+
+        //Debug.Log(transform.position);
+        if (transform.position.y > 6 || transform.position.y < -5)
+        {
+            Debug.Log("上下越界");
+            FindObjectOfType<FlappyBirdManager>().GameOver();
+        }
     }
 
     private void AnimateSprite()
@@ -61,11 +68,14 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Obstacle")) {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
             Debug.Log("碰撞");
             FindObjectOfType<FlappyBirdManager>().GameOver();
-        } else if (other.gameObject.CompareTag("Scoring")) {
-            Debug.Log("等分");
+        } 
+        else if (other.gameObject.CompareTag("Scoring")) 
+        {
+            Debug.Log("得分");
             FindObjectOfType<FlappyBirdManager>().IncreaseScore();
         }
     }
