@@ -1,6 +1,8 @@
 using Press;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +18,7 @@ public class PressManager : MonoBehaviour
     private PressBox Box = new();
     private Dictionary<int, Button> buttons = new Dictionary<int, Button>();
     private Dictionary<int, Text> texts = new Dictionary<int, Text>();
-    private int timer;
+    private DateTime timer;
     private bool isUpdate;
 
     void Start()
@@ -31,7 +33,7 @@ public class PressManager : MonoBehaviour
         texts.Add(0, T0);
         texts.Add(1, T1);
         texts.Add(2, T2);
-        timer = 0;
+        timer = DateTime.Now;
         isUpdate = true;
 
         for (int i = 0; i < PressBox.rage; i++)
@@ -43,7 +45,7 @@ public class PressManager : MonoBehaviour
                 if (Box.light[key])
                 {
                     Box.SwitchLight();
-                    timer = 0;
+                    timer = DateTime.Now;
                     Box.cnt++;
                 }
                 else
@@ -58,11 +60,10 @@ public class PressManager : MonoBehaviour
 
     void Update()
     {
-        timer++;
-        if (timer == 100 && isUpdate)
+        if (DateTime.Now.Ticks - timer.Ticks >= 800 * 10000 && isUpdate)
         {
             Box.SwitchLight();
-            timer = 0;
+            timer = DateTime.Now;
         }
 
         UpdateColor();
