@@ -18,7 +18,7 @@ namespace Press
 
         public void Init()
         {
-            InitArray(ref light);
+            SwitchLight();
             cnt = 0;
         }
 

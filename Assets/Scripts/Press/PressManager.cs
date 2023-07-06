@@ -9,9 +9,14 @@ public class PressManager : MonoBehaviour
     [SerializeField] private Button B0;
     [SerializeField] private Button B1;
     [SerializeField] private Button B2;
+    [SerializeField] private Text T0;
+    [SerializeField] private Text T1;
+    [SerializeField] private Text T2;
     [SerializeField] private Text Tip;
     private PressBox Box = new();
     private Dictionary<int, Button> buttons = new Dictionary<int, Button>();
+    private Dictionary<int, Text> texts = new Dictionary<int, Text>();
+    private int timer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,10 @@ public class PressManager : MonoBehaviour
         buttons.Add(0, B0);
         buttons.Add(1, B1);
         buttons.Add(2, B2);
+        texts.Add(0, T0);
+        texts.Add(1, T1);
+        texts.Add(2, T2);
+        timer = 0;
 
         for (int i = 0; i < PressBox.rage; i++)
         {
@@ -33,6 +42,7 @@ public class PressManager : MonoBehaviour
                 if (Box.light[key])
                 {
                     Box.SwitchLight();
+                    timer = 0;
                     Box.cnt++;
                 }
                 else
@@ -46,12 +56,19 @@ public class PressManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer++;
+        if (timer == 500)
+        {
+            Box.SwitchLight();
+            timer = 0;
+        }
+
         UpdateColor();
         if (Box.cnt == PressBox.tar)
         {
             GameOverUI.Instance.GameOver(true);
         }
-
+        
         Tip.text = Box.GetTip();
     }
 
@@ -60,13 +77,16 @@ public class PressManager : MonoBehaviour
         for (int i = 0; i < PressBox.rage; i++)
         {
             Button button = buttons.GetValueOrDefault(i);
+            Text text = texts.GetValueOrDefault(i);
             if (Box.light[i])
             {
                 button.image.color = Color.green;
+                text.text = "O2";
             }
             else
             {
                 button.image.color = Color.red;
+                text.text = "CO2";
             }
         }
     }

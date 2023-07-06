@@ -17,6 +17,8 @@ public class GuessManager : MonoBehaviour
         Box.Init();
         GameOverUI.Instance.Init(SceneName.Guess);
         GamePausePanelUI.Instance.Init(SceneName.Guess);
+
+        Result.text = "";
     }
 
     void Update()
@@ -36,7 +38,7 @@ public class GuessManager : MonoBehaviour
 
             inputField.text = "";
             Box.cnt++;
-            if (Box.cnt > GuessBox.limit)
+            if (Box.cnt >= GuessBox.limit)
             {
                 GameOverUI.Instance.GameOver(false);
             }
