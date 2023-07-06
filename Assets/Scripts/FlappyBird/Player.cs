@@ -48,7 +48,6 @@ public class Player : MonoBehaviour
         //Debug.Log(transform.position);
         if (transform.position.y > 6 || transform.position.y < -5)
         {
-            Debug.Log("上下越界");
             FindObjectOfType<FlappyBirdManager>().GameOver();
         }
     }
@@ -70,12 +69,10 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("碰撞");
             FindObjectOfType<FlappyBirdManager>().GameOver();
         } 
         else if (other.gameObject.CompareTag("Scoring")) 
         {
-            Debug.Log("得分");
             FindObjectOfType<FlappyBirdManager>().IncreaseScore();
         }
     }
