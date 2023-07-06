@@ -12,5 +12,8 @@ public enum SceneName
     Suduku,
     Guess,
     Press,
-    Event01
+    Event01,
+    Event02,
+    Event03,
+    Event04,
 }
