@@ -1,6 +1,7 @@
 using Suduku;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -94,7 +95,8 @@ public class SudukuManager : MonoBehaviour
             {
                 button.onClick.AddListener(() =>
                 {
-                    Box.SetChoose(i);
+                    int key = Buttons.FirstOrDefault(q => q.Value == button).Key;
+                    Box.SetChoose(key);                    
                 });
             }
             else
@@ -108,7 +110,7 @@ public class SudukuManager : MonoBehaviour
     {
         for (int i = 0; i < Texts.Count; i++)
         {
-            Text text = Texts[i];
+            Text text = Texts.GetValueOrDefault(i);
             int num = Box.GetValue(i);
             if (num == 0)
             {
