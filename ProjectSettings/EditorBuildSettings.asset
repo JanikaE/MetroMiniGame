@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Suduku.unity
     guid: 43aad4256d1fd0f4e8cc27113c6b6f17
+  - enabled: 1
+    path: Assets/Scenes/Guess.unity
+    guid: fbc7466f502fb144ea0fb05aaf11b077
+  - enabled: 1
+    path: Assets/Scenes/Press.unity
+    guid: 075a433e7c5b84547870c232b12e4533
+  - enabled: 1
+    path: Assets/Scenes/Event01.unity
+    guid: 748bee3148a57d848ad42f5847aef010
   m_configObjects: {}
